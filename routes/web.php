@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HelloController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,8 @@ Route::get('/', function () {
 });
 
 Route::get('/hello',[HelloController::class,'show']); //routing przez kontroler
+
+Route::get('/users',[UserController::class,'index'])->name('users.list'); //routing przez kontroler ->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
