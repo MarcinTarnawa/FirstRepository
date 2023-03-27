@@ -14,10 +14,17 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function index()
+     public function index()//: Factory|View|Application
     {
-        return view(view:'users.index');
+        return view('users.index', [
+            'users' => User::all()
+        ]);
     }
+
+    // public function index()
+    // {
+    //     return view(view:'users.index');
+    // }
 
     // /**
     //  * Show the form for creating a new resource.
