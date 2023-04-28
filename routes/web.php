@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::get('/hello',[HelloController::class,'show']); //routing przez kontroler
 
-Route::get('/users/list',[UserController::class,'index'])->name('users.list'); //routing przez kontroler ->middleware('auth');
+Route::get('/users/list',[UserController::class,'index'])->name('users.list')->middleware('auth'); //routing przez kontroler ->middleware('auth');
 
 //Route::get('/users',[UserController::class,'index'])->name('users.list'); //routing przez kontroler ->middleware('auth');
 

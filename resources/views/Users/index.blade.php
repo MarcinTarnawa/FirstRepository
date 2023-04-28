@@ -1,5 +1,8 @@
 <x-app-layout>
-
+<x-slot name="header">
+<h2>
+           
+    
 <div class="container">
     <table class="table table-hover">
         <thead>
@@ -31,5 +34,6 @@
         </tbody>
     </table>
 </div>
-
+</h2>
+</x-slot>
 </x-app-layout>
