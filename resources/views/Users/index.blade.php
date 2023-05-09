@@ -15,6 +15,7 @@
             <th scope="col">Akcje</th>
         </tr>
         </thead>
+        
         <tbody>
         @foreach($users as $user)
             <tr>
@@ -35,5 +36,6 @@
     </table>
 </div>
 </h2>
+{{ $users->onEachSide(2)->links() }}
 </x-slot>
 </x-app-layout>
