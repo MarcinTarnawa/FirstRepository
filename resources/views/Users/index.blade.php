@@ -51,12 +51,12 @@ td {
 </div>
 </h2>
 
-@section('JavaScript')
+<script type="module">
     $(function() {
         $('.delete').click(function() {
             alert('Click!!');
         });
     });
-@endsection
+</script>
 </x-slot>
 </x-app-layout>
