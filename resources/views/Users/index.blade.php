@@ -1,6 +1,8 @@
 <x-app-layout>
 <x-slot name="header">
 <h2>
+  
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <style>
 table, td, th {
@@ -51,12 +53,23 @@ td {
 </div>
 </h2>
 
-<script type="module">
-    $(function() {
-        $('.delete').click(function() {
-            alert('Click!!');
-        });
-    });
-</script>
 </x-slot>
 </x-app-layout>
+
+<script>
+    $(function() {
+        $('.delete').click(function() {
+          $.ajax({
+            method: "DELETE",
+//            url: "{{Url('users')}}" + $(this).data("id")
+            url: "http://localhost/users/list" + $(this).data("id")
+          })
+          .done(function(response) {
+            window.location.reload();
+          })
+          .fail(function(response) {
+            alert('Error!!');
+        });
+      });
+    });
+</script>

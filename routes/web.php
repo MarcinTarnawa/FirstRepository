@@ -21,9 +21,11 @@ Route::get('/', function () {
 
 Route::get('/hello',[HelloController::class,'show']); //routing przez kontroler
 
+Route::delete('/users/list{id}',[UserController::class,'destroy'])->name('users.list')->middleware('auth');
+
 Route::get('/users/list',[UserController::class,'index'])->name('users.list')->middleware('auth'); //routing przez kontroler ->middleware('auth');
 
-//Route::get('/users',[UserController::class,'index'])->name('users.list'); //routing przez kontroler ->middleware('auth');
+//Route::delete('/users/{id}',[UserController::class,'destroy'])->name('users.list')->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
