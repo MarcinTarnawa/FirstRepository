@@ -53,23 +53,13 @@ td {
 </div>
 </h2>
 
+@section('js')
+  const deleteUrl = "{{ url('http://localhost/users/list')}}";
+@endsection
+
+@section('js')
+  <script src="{{ asset('js/delete.js') }}"> </script>
+@endsection
+
 </x-slot>
 </x-app-layout>
-
-<script>
-    $(function() {
-        $('.delete').click(function() {
-          $.ajax({
-            method: "DELETE",
-//            url: "{{Url('users')}}" + $(this).data("id")
-            url: "http://localhost/users/list" + $(this).data("id")
-          })
-          .done(function(response) {
-            window.location.reload();
-          })
-          .fail(function(response) {
-            alert('Error!!');
-        });
-      });
-    });
-</script>
