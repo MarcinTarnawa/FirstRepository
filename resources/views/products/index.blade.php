@@ -68,31 +68,13 @@ td {
 </div>
 </h2>
 
-</x-slot>
-</x-app-layout>
-
 @section('js')
-  const deleteUrl = "{{ url('http://localhost/product')}}";
+  const deleteUrl = "{{ url('products')}}";
 @endsection
 
 @section('js')
   <script src="{{ asset('js/delete.js') }}"> </script>
 @endsection
 
- <script>
-    $(function() {
-        $('.delete').click(function() {
-          $.ajax({
-            method: "DELETE",
-//            url: "{{Url('users')}}" + $(this).data("id")
-            url: "http://localhost/users/list" + $(this).data("id")
-          })
-          .done(function(response) {
-            window.location.reload();
-          })
-          .fail(function(response) {
-            alert('Error!!');
-        });
-      });
-    });
-</script>
+</x-slot>
+</x-app-layout>

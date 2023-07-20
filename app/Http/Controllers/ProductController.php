@@ -79,14 +79,28 @@ class ProductController extends Controller
         return redirect(route('products.index'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Product $product)
-    {
-        //
-    }
+    // /**
+    //  * Remove the specified resource from storage.
+    //  *
+    //  * @param  \App\Models\Product  $product
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function destroy(Product $product)
+    // {
+    //     $flight = Product::find($product);
+
+    //     $flight->delete();
+
+    // }
+/**
+* @param  int  $id
+* @return \Illuminate\Http\Response
+*/
+public function destroy($id)
+{
+   $flight = Product::find($id);
+
+   $flight->delete();
+
+}
 }
