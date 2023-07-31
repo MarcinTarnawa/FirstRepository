@@ -50,10 +50,15 @@ td {
                 <td>{{ $product->amount }}</td>
                 <td>{{ $product->price }}</td>
                 <td> 
+                <a href="{{ route('products.show', $product->id) }}">
+                  <x-primary-button>
+                    podglad
+                  </x-primary-button>
+                </a>
                 <a href="{{ route('products.edit', $product->id) }}">
-                  <x-danger-button>
+                  <x-primary-button>
                     Edit
-                  </x-danger-button>
+                  </x-primary-button>
                 </a>
                 <x-danger-button class="btn btn-danger btn-sm delete" data-id="{{ $product->id }}">
                   X
