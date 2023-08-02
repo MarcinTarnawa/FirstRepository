@@ -1,1 +1,0 @@
-$(function(){$(".delete").click(function(){$.ajax({method:"DELETE",url:"https://localhost/users"+$(this).data("id")}).done(function(o){window.location.reload()}).fail(function(o){alert("Error!!")})})});
