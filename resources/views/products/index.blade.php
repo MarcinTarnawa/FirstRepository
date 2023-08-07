@@ -25,8 +25,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#!">Start Bootstrap</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
@@ -80,18 +79,18 @@
                                     <h5 class="fw-bolder">{{ $product->name }}</h5>
                                     <!-- Product price-->
                                     {{ $product->description }}<br>
-                                    Cena : {{ $product->price }}$
+                                    {{__('shop.product.price')}} : {{ $product->price }}$
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{ route('products.show', $product->id) }}">Podgląd</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{ route('products.show', $product->id) }}">{{__('shop.product.view')}}</a></div>
                             </div>
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{ route('products.edit', $product->id) }}">Edycja</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{ route('products.edit', $product->id) }}">{{__('shop.product.edit')}}</a></div>
                             </div>
                             <x-danger-button class="btn btn-danger btn-sm delete" data-id="{{ $product->id }}">
-                  Usuń produkt
+                  {{__('shop.product.delete')}}
                 </x-danger-button>
                         </div>
                     </div>
@@ -138,11 +137,11 @@ td {
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Imię</th>
-            <th scope="col">Opis</th>
-            <th scope="col">Ilość</th>
-            <th scope="col">Cena</th>
-            <th scope="col">Akcje</th>
+            <th scope="col">{{__('shop.product.name_product')}}</th>
+            <th scope="col">{{__('shop.product.description')}}</th>
+            <th scope="col">{{__('shop.product.amount')}}</th>
+            <th scope="col">{{__('shop.product.price')}}</th>
+            <th scope="col">{{__('shop.product.action')}}</th>
         </tr>
         </thead>
         
@@ -157,16 +156,16 @@ td {
                 <td> 
                 <a href="{{ route('products.show', $product->id) }}">
                   <x-primary-button>
-                    podglad
+                    {{__('shop.product.view')}}
                   </x-primary-button>
                 </a>
                 <a href="{{ route('products.edit', $product->id) }}">
                   <x-primary-button>
-                    Edit
+                  {{__('shop.product.edit')}}
                   </x-primary-button>
                 </a>
                 <x-danger-button class="btn btn-danger btn-sm delete" data-id="{{ $product->id }}">
-                  X
+                {{__('shop.product.delete')}}
                 </x-danger-button>
                 </td>
             </tr>
@@ -179,6 +178,7 @@ td {
 
 @section('js')
   const deleteUrl = "{{ url('products')}}";
+  const confirmdelete = "{{ __('shop.confirmdelete')}}";
 @endsection
 
 @section('js')

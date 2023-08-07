@@ -1,0 +1,1 @@
+$(function(){$(".delete").click(function(){var e=confirm(confirmdelete);e&&$.ajax({method:"DELETE",url:deleteUrl+$(this).data("id")}).done(function(o){alert("Udało się!!"),window.location.reload()}).fail(function(o){alert("Error!!")})})});

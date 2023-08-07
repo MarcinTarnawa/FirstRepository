@@ -64,7 +64,7 @@
                                     <h5 class="fw-bolder">{{ $product->name }}</h5>
                                     <!-- Product price-->
                                     {{ $product->description }}<br>
-                                    Cena : {{ $product->price }}$
+                                    {{__('shop.product.price')}} : {{ $product->price }}$
                                 </div>
                             </div>
                         </div>

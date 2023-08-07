@@ -39,11 +39,11 @@
                         </x-dropdown-link>
 
                         <x-dropdown-link :href="route('users.list')">
-                            {{ __('Uzytkownicy') }}
+                            {{ __('Users') }}
                         </x-dropdown-link>
 
                         <x-dropdown-link :href="route('products.index')">
-                            {{ __('Produkt') }}
+                            {{ __('Product') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
