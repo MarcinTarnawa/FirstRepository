@@ -30,12 +30,25 @@
             <x-input-error :messages="$errors->get('price')" class="mt-2" />
         </div>
 
+         <!-- kategoria --> 
+        <div class="form-group">
+          <label for="category">{{__('shop.product.category')}}</label>
+                <select class="form-control input-sm" name="category_id" id="category"> 
+                    <option value="">{{__('shop.product.brak')}}</option>
+                    @foreach($categories as $category)
+                        <option value="{{$category->id}}" @if($product->isSelectedCategory($category->id))selected @endif>{{$category->name}} </option>
+                    @endforeach
+                </select>
+            <x-input-error :messages="$errors->get('category')" class="mt-2" />
+        </div>
+
+        <!-- grafika-->
         <div class="mt-4">
             <x-input-label for="image_path" :value="__('shop.product.image')" />
             <x-text-input id="image" class="block mt-1 w-full" type="file" name="image"/>
-                             @if(is_null($product->image_path))
+            @if(is_null($product->image_path))
                             @else
-                                <img class="container px-4 px-lg-5 mt-5" style="width: 500px" src="{{ asset('storage/app/' . $product->image_path) }}"alt="Podgląd" />
+                                <img class="container px-4 px-lg-5 mt-5" style="width: 500px" src="{{ asset('storage/' . $product->image_path) }}"alt="Podgląd" />
                             @endif
             <x-input-error :messages="$errors->get('image')" class="mt-2" />
         </div>

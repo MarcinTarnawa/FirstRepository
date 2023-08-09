@@ -29,6 +29,20 @@
             <x-input-error :messages="$errors->get('price')" class="mt-2" />
         </div>
 
+        <!-- kategoria --> 
+        <div class="form-group">
+          <label>{{__('shop.product.category')}}</label>
+                <select class="form-control input-sm" name="category_id" id="category" disabled> 
+                    @if($product->hasCategory())
+                        <option>{{$product->category->name}}</option>
+                    @else
+                        <option>{{__('shop.product.brak')}}</option>
+                    @endif
+                </select>
+            <x-input-error :messages="$errors->get('category')" class="mt-2" />
+        </div>
+
+
         <div class="flex items-center justify-end mt-4">
         </div>
     </form>

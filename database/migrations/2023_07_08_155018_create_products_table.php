@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('description');
             $table->integer('amount');
             $table->decimal('price');
+            $table->integer('category_id')->nullable();
             $table->timestamps();
         });
     }

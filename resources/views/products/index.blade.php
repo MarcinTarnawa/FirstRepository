@@ -15,9 +15,9 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" /> -->
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <!-- <link href="css/styles.css" rel="stylesheet" /> -->
          <!-- Scripts -->
          @vite(['resources/css/app.css', 'resources/sass/app.scss', 'resources/js/app.js', 'resources/js/delete.js'])
     </head>
@@ -70,7 +70,7 @@
                                 @if(is_null($product->image_path))
                                 <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Podgląd" />
                                 @else
-                                <img class="card-img-top" src="{{ asset('storage/app/' . $product->image_path) }}"alt="Podgląd" />
+                                <img class="card-img-top" src="{{ asset('storage/' . $product->image_path) }}"alt="Podgląd" />
                                 @endif
                             <!-- Product details-->
                             <div class="card-body p-4">
@@ -103,9 +103,9 @@
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
         </footer>
         <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> -->
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <!-- <script src="js/scripts.js"></script> -->
     </body>
 
 <style>
@@ -141,6 +141,7 @@ td {
             <th scope="col">{{__('shop.product.description')}}</th>
             <th scope="col">{{__('shop.product.amount')}}</th>
             <th scope="col">{{__('shop.product.price')}}</th>
+            <th scope="col">{{__('shop.product.category')}}</th>
             <th scope="col">{{__('shop.product.action')}}</th>
         </tr>
         </thead>
@@ -153,6 +154,7 @@ td {
                 <td>{{ $product->description }}</td>
                 <td>{{ $product->amount }}</td>
                 <td>{{ $product->price }}</td>
+                <td>@if($product->hasCategory()){{ $product->category->name }}@endif</td>
                 <td> 
                 <a href="{{ route('products.show', $product->id) }}">
                   <x-primary-button>

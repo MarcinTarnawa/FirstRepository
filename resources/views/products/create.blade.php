@@ -30,6 +30,19 @@
             <x-input-error :messages="$errors->get('price')" class="mt-2" />
         </div>
 
+         <!-- kategoria -->
+        <div class="form-group">
+          <label for="category">{{__('shop.product.category')}}</label>
+                <select class="form-control input-sm" name="category_id" id="category"> 
+                    <option value="">{{__('shop.product.brak')}}</option>
+                    @foreach($categories as $category)
+                        <option value="{{$category->id}}">{{$category->name}} </option>
+                    @endforeach
+                </select>
+            <x-input-error :messages="$errors->get('category')" class="mt-2" />        
+        </div>
+
+        <!-- grafika-->
         <div class="mt-4">
             <x-input-label for="image_path" :value="__('shop.product.image')" />
             <x-text-input id="image" class="block mt-1 w-full" type="file" name="image"/>

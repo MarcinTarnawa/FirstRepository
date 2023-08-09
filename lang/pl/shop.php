@@ -16,5 +16,7 @@ return [
         'view' => 'Podgląd',
         'action' => 'Akcje',
         'edit' => 'Edycja',
+        'category'=> 'Kategoria',
+        'brak'=> 'brak',
     ],
 ];
