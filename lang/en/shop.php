@@ -18,5 +18,6 @@ return [
         'edit' => 'Edit',
         'category'=> 'category',
         'brak'=> 'none',
+        'categories' => 'Kategories',
     ],
 ];

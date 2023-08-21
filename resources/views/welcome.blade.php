@@ -44,6 +44,16 @@
                 </div>
             </div>
         </header>
+             <!-- Filters-->
+             <h6 class="text-uppercase font-weight-bold mb-3">{{__('shop.product.category')}}</h6>
+        @foreach($categories as $category)
+          <div class="mt-2 mb-2 pl-2">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="category-{{ $category->id }}">
+              <label class="custom-control-label" for="category-{{ $category->id }}"> {{ $category->name}} </label>
+            </div>
+          </div>
+        @endforeach
         <!-- Section-->
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
