@@ -5,6 +5,8 @@ return [
     
     'button' => [
         'save' => 'zapisz',
+        'filter' => 'Filtruj',
+
     ],
     'product' => [
         'name_product' => 'Nazwa produktu',

@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<x-app-layout>
+<x-slot name="slot">
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +16,7 @@
             }
         </style>
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/sass/app.scss', 'resources/js/app.js', 'resources/js/delete.js'])
+        @vite(['resources/css/app.css', 'resources/sass/app.scss', 'resources/js/app.js', 'resources/js/delete.js', 'resources/js/welcome.js'])
     </head>
     
     <body class="antialiased">
@@ -45,19 +46,30 @@
             </div>
         </header>
              <!-- Filters-->
-             <h6 class="text-uppercase font-weight-bold mb-3">{{__('shop.product.category')}}</h6>
+             <form class="sidebar-filter">
+             <h6 class="text-uppercase font-weight-bold mb-3">{{__('shop.product.categories')}}</h6>
         @foreach($categories as $category)
           <div class="mt-2 mb-2 pl-2">
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="category-{{ $category->id }}">
+              <input type="checkbox" class="custom-control-input" name="filter[categories][]" id="category-{{ $category->id }}" value="{{ $category->id }}">
               <label class="custom-control-label" for="category-{{ $category->id }}"> {{ $category->name}} </label>
             </div>
           </div>
         @endforeach
-        <!-- Section-->
+        <div class="price-filter-control">
+            <input type="number" class="form-control w-50 pull-right mb-2" placeholder="50" name="filter[price_min]" id="price-min-control">
+            <input type="number" class="form-control w-150 pull-left mb-2" placeholder="150" name="filter[price_max]" id="price-max-control">
+        </div>
+        <a id="filter-button">
+        <x-primary-button class="ml-2">
+                {{ __('shop.button.filter') }}
+        </x-primary-button>
+        </a>
+        </form>
+            <!-- Section-->
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
-                <div class="row gx-4 gx-lg-5 row-cols-4 row-cols-md-6 row-cols-xl-4 justify-content-center">
+                <div class="row gx-4 gx-lg-5 row-cols-4 row-cols-md-6 row-cols-xl-4 justify-content-center" id="product-wrapper">
                 @foreach($products as $product)
                     <div class="col mb-5">
                         <div class="card h-100">
@@ -79,9 +91,9 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach 
-                </div>
+                @endforeach 
             </div>
+        </div>
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
@@ -92,5 +104,11 @@
                     </div>
                 </div>
             </div>
-    </body>
-</html>
+    
+@section('js')
+ src="{{ asset('js/welcome.js') }}"
+@endsection
+
+</body>
+</x-slot>
+</x-app-layout>

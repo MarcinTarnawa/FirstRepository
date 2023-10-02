@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-644f2950.css",
+    "file": "assets/app-c1c24525.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -14,8 +14,13 @@
     "isEntry": true,
     "src": "resources/js/delete.js"
   },
+  "resources/js/welcome.js": {
+    "file": "assets/welcome-a568ee34.js",
+    "isEntry": true,
+    "src": "resources/js/welcome.js"
+  },
   "resources/sass/app.scss": {
-    "file": "assets/app-5005f49e.css",
+    "file": "assets/app-5646e370.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
   }

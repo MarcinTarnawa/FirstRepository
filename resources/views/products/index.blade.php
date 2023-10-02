@@ -23,6 +23,7 @@
     </head>
     <body>
         <!-- Filters-->
+        <form class="sidebar-filter">
         <h6 class="text-uppercase font-weight-bold mb-3">{{__('shop.product.categories')}}</h6>
         @foreach($categories as $category)
           <div class="mt-2 mb-2 pl-2">
@@ -32,6 +33,12 @@
             </div>
           </div>
         @endforeach
+        <a id="filter-button">
+        <x-primary-button class="ml-2">
+                {{ __('shop.button.filter') }}
+        </x-primary-button>
+        </a>
+        </form>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
@@ -72,7 +79,7 @@
         <!-- Section-->
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
-                <div class="row gx-4 gx-lg-5 row-cols-3 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div class="row gx-4 gx-lg-5 row-cols-3 row-cols-md-3 row-cols-xl-4 justify-content-center" id="product-wrapper">
                 @foreach($products as $product)
                     <div class="col mb-5">
                         <div class="card h-100">
@@ -195,6 +202,10 @@ td {
 
 @section('js')
   <script src="{{ asset('js/delete.js') }}"> </script>
+@endsection
+
+@section('js')
+  <script src="{{ asset('js/welcome.js') }}"> </script>
 @endsection
 
 </x-slot>

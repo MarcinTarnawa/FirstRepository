@@ -1,5 +1,5 @@
-@extends('layouts.app')
-
+<x-app-layout>
+<x-slot name="slot">
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -21,3 +21,5 @@
     </div>
 </div>
 @endsection
+</x-slot>
+</x-app-layout>
