@@ -37,6 +37,11 @@
         <x-primary-button class="ml-2">
                 {{ __('shop.button.filter') }}
         </x-primary-button>
+        @if (session('status'))
+          <div class="alert alert-success">
+              {{ session('status') }}
+          </div>
+        @endif
         </a>
         </form>
         <!-- Navigation-->

@@ -49,7 +49,7 @@ class ProductController extends Controller
         $product->image_path = $request->file('image')->store('products');
         }
         $product->save();
-        return redirect(route('products.index'));
+        return redirect(route('products.index'))->with('status', 'Product stored!');
     }
 
     /**
@@ -93,7 +93,7 @@ class ProductController extends Controller
             $product->image_path = $request->file('image')->store('products');
             }
         $product->save();
-        return redirect(route('products.index'));
+        return redirect(route('products.index'))->with('status', 'Profile updated!');
     }
 
     // /**
