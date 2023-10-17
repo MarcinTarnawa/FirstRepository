@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Enums\UserRole;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,7 @@ Route::post('/products/{product}',[ProductController::class,'update'])->name('pr
 
 Route::delete('/products{product}',[ProductController::class,'destroy'])->middleware('auth');
 
-Route::delete('/users/list{id}',[UserController::class,'destroy'])->middleware('auth');
+Route::delete('/users/list{id}',[UserController::class,'destroy'])->middleware('auth', 'can:isAdmin');
 
 Route::get('/users/list',[UserController::class,'index'])->name('users.list')->middleware('auth'); //routing przez kontroler ->middleware('auth');
 

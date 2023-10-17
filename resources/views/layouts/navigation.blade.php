@@ -45,11 +45,11 @@
                         <x-dropdown-link :href="route('users.list')">
                             {{ __('Users') }}
                         </x-dropdown-link>
-
+                        
                         <x-dropdown-link :href="route('products.index')">
                             {{ __('Product') }}
                         </x-dropdown-link>
-
+                        
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
