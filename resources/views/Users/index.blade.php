@@ -23,7 +23,7 @@ td {
     <table>
         <thead>
         <tr>
-            <th scope="col">#</th>
+            <th scope="col"><i class="fa-solid fa-user">#</i></th>
             <th scope="col">{{__('Email')}}</th>
             <th scope="col">{{__('Name')}}</th>
             <th scope="col">{{__('Surname')}}</th>

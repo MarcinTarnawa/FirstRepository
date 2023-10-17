@@ -1,6 +1,4 @@
 <x-app-layout>
-<x-slot name="slot">
-
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,11 +22,9 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                    @include('layouts.navigation')
-                        <!-- <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a> -->
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
+                        @include('layouts.navigation')
+                         @else
+                          <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
                         @endif
@@ -62,8 +58,8 @@
         </div>
         <a id="filter-button">
         <x-primary-button class="ml-2">
-                {{ __('shop.button.filter') }}
-        </x-primary-button>
+            <i class="fa-solid fa-magnifying-glass">{{ __('shop.button.filter') }}</i>
+        </x-primary-button></br>
         </a>
         </form>
             <!-- Section-->
@@ -110,5 +106,5 @@
 @endsection
 
 </body>
-</x-slot>
+
 </x-app-layout>

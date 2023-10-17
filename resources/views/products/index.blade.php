@@ -10,7 +10,7 @@
         <meta name="author" content="" />
         <title>Shop Homepage - Start Bootstrap Template</title>
         <a class="ml-2" href="{{ route('products.create')}}">
-          <button> Dodaj nowy produkt </button>
+          <button> <i class="fa-solid fa-plus"> Dodaj nowy produkt</i></button>
         </a>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -35,7 +35,7 @@
         @endforeach
         <a id="filter-button">
         <x-primary-button class="ml-2">
-                {{ __('shop.button.filter') }}
+          <i class="fa-solid fa-magnifying-glass">{{ __('shop.button.filter') }}</i>
         </x-primary-button>
         @if (session('status'))
           <div class="alert alert-success">

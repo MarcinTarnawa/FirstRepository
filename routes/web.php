@@ -21,7 +21,7 @@ use Illuminate\Http\Request;
 */
 
 
-Route::get('/',[WelcomeController::class,'index']);
+
 
 Route::get('/products',[ProductController::class,'index'])->name('products.index')->middleware('auth','verified');
 Route::get('/products/create',[ProductController::class,'create'])->name('products.create')->middleware('auth');
