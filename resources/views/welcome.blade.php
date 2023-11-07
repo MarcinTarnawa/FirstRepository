@@ -44,14 +44,14 @@
              <!-- Filters-->
              <form class="sidebar-filter">
              <h6 class="text-uppercase font-weight-bold mb-3">{{__('shop.product.categories')}}</h6>
-        @foreach($categories as $category)
-          <div class="mt-2 mb-2 pl-2">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" name="filter[categories][]" id="category-{{ $category->id }}" value="{{ $category->id }}">
-              <label class="custom-control-label" for="category-{{ $category->id }}"> {{ $category->name}} </label>
-            </div>
-          </div>
-        @endforeach
+            @foreach($categories as $category)
+                <div class="mt-2 mb-2 pl-2">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" name="filter[categories][]" id="category-{{ $category->id }}" value="{{ $category->id }}">
+                        <label class="custom-control-label" for="category-{{ $category->id }}"> {{ $category->name}} </label>
+                    </div>
+                </div>
+            @endforeach
         <div class="price-filter-control">
             <input type="number" class="form-control w-50 pull-right mb-2" placeholder="50" name="filter[price_min]" id="price-min-control">
             <input type="number" class="form-control w-150 pull-left mb-2" placeholder="150" name="filter[price_max]" id="price-max-control">

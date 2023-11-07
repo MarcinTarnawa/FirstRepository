@@ -24,7 +24,7 @@ use App\Enums\UserRole;
 
 
 
-Route::get('/products',[ProductController::class,'index'])->name('products.index')->middleware('auth','verified');
+Route::get('/products',[ProductController::class,'index'])->name('products.index')->middleware('auth',);
 Route::get('/products/create',[ProductController::class,'create'])->name('products.create')->middleware('auth');
 Route::get('/products{product}',[ProductController::class,'show'])->name('products.show')->middleware('auth');
 Route::post('/products',[ProductController::class,'store'])->name('products.store')->middleware('auth');
