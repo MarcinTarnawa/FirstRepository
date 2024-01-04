@@ -22,7 +22,7 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        @include('layouts.navigation')
+                        <!-- include('layouts.navigation') -->
                          @else
                           <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
                         @if (Route::has('register'))
@@ -33,78 +33,75 @@
             @endif
         </div>
         <!-- Header-->
-        <header class="bg-dark py-5">
+        <!-- <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
                     <h1 class="display-4 fw-bolder">Shop in style</h1>
                     <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
                 </div>
             </div>
-        </header>
-             <!-- Filters-->
-             <form class="sidebar-filter">
-             <h6 class="text-uppercase font-weight-bold mb-3">{{__('shop.product.categories')}}</h6>
-            @foreach($categories as $category)
-                <div class="mt-2 mb-2 pl-2">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" name="filter[categories][]" id="category-{{ $category->id }}" value="{{ $category->id }}">
-                        <label class="custom-control-label" for="category-{{ $category->id }}"> {{ $category->name}} </label>
-                    </div>
-                </div>
-            @endforeach
-        <div class="price-filter-control">
-            <input type="number" class="form-control w-50 pull-right mb-2" placeholder="50" name="filter[price_min]" id="price-min-control">
-            <input type="number" class="form-control w-150 pull-left mb-2" placeholder="150" name="filter[price_max]" id="price-max-control">
-        </div>
-        <a id="filter-button">
-        <x-primary-button class="ml-2">
-            <i class="fa-solid fa-magnifying-glass">{{ __('shop.button.filter') }}</i>
-        </x-primary-button></br>
-        </a>
-        </form>
-            <!-- Section-->
-        <section class="py-5">
-            <div class="container px-4 px-lg-5 mt-5">
-                <div class="row gx-4 gx-lg-5 row-cols-4 row-cols-md-6 row-cols-xl-4 justify-content-center" id="product-wrapper">
-                @foreach($products as $product)
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            @if(is_null($product->image_path))
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            @else
-                            <img class="card-img-top" src="{{ asset('storage/' . $product->image_path) }}"alt="..." />
-                            @endif
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">{{ $product->name }}</h5>
-                                    <!-- Product price-->
-                                    {{ $product->description }}<br>
-                                    {{__('shop.product.price')}} : {{ $product->price }}$
-                                </div>
+        </header> -->
+        <!-- Filters-->
+            <form class="sidebar-filter">
+                <h6 class="text-uppercase font-weight-bold mb-3">{{__('shop.product.categories')}}</h6>
+                    @foreach($categories as $category)
+                        <div class="mt-2 mb-2 pl-2">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="filter[categories][]" id="category-{{ $category->id }}" value="{{ $category->id }}">
+                                <label class="custom-control-label" for="category-{{ $category->id }}"> {{ $category->name}} </label>
                             </div>
                         </div>
-                    </div>
-                @endforeach 
-            </div>
-        </div>
-        </section>
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
-        </footer>
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-                    </div>
+                    @endforeach
+                <div class="price-filter-control">
+                    <input type="number" class="form-control w-50 pull-right mb-2" placeholder="50" name="filter[price_min]" id="price-min-control">
+                    <input type="number" class="form-control w-150 pull-left mb-2" placeholder="150" name="filter[price_max]" id="price-max-control">
                 </div>
-            </div>
-    
-@section('js')
- src="{{ asset('js/welcome.js') }}"
-@endsection
-
-</body>
-
+                <a id="filter-button">
+                    <x-primary-button class="ml-2">
+                        <i class="fa-solid fa-magnifying-glass">{{ __('shop.button.filter') }}</i>
+                    </x-primary-button></br>
+                </a>
+            </form>
+        <!-- Section-->
+            <section class="py-5">
+                <div class="container px-4 px-lg-5 mt-5">
+                    <div class="row gx-4 gx-lg-5 row-cols-4 row-cols-md-6 row-cols-xl-4 justify-content-center" id="product-wrapper">
+                        @foreach($products as $product)
+                            <div class="col mb-5">
+                                <div class="card h-100">
+                                    <!-- Product image-->
+                                        @if(is_null($product->image_path))
+                                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                                        @else
+                                        <img class="card-img-top" src="{{ asset('storage/' . $product->image_path) }}"alt="..." />
+                                        @endif
+                                    <!-- Product details-->
+                                        <div class="card-body p-4">
+                                            <div class="text-center">
+                                                <!-- Product name-->
+                                                <h5 class="fw-bolder">{{ $product->name }}</h5>
+                                                <!-- Product price-->
+                                                {{ $product->description }}<br>
+                                                {{__('shop.product.price')}} : {{ $product->price }}$
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        @endforeach                
+                    </div>
+                    {{ $products->links() }}
+                </div>
+            </section>
+        <!-- Footer-->
+            <footer class="py-5 bg-dark">
+                <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+            </footer>
+                <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
+                    Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+                </div>
+           
+        @section('js')
+        src="{{ asset('js/welcome.js') }}"
+        @endsection
+    </body>
 </x-app-layout>
